@@ -1,0 +1,201 @@
+/* ======== BASE ======== */
+
+// Import normalize
+@import "../normalize/normalize";
+
+// Import Bourbon + Neat
+@import "../bourbon/bourbon";
+@import "../neat/neat";
+
+// Sprinkle in our grid settings
+@import "grid-settings";
+
+// Fix some margin stuff I don't like
+@import "myfixes";
+
+/* ======== VARIABLES ======== */
+
+$serif: "jubilat",sans-serif;
+$sans: $helvetica;
+
+$red: #8E2800;
+
+/* ======== TEXT STYLES ======== */
+
+body {
+  font-family: $sans;
+  color: lighten(black, 20%);
+
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header, section, footer {
+  max-width: 1000px;
+  margin: 75px auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+header h1 .track {
+  letter-spacing: -5px;
+}
+
+/* ======== HEDER ======== */
+
+header {
+  // margin: 50px 100px;
+  @include clearfix;
+
+  .logo {
+    width: 100px;
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+  }
+
+  h1 {
+    margin: 0;
+    float: left;
+    display: inline-block;
+  }
+
+  p {
+    float: right;
+    display: inline-block;
+    margin-top: 20px;
+
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+  }
+
+}
+
+/* ======== MAIN SECTION ======== */
+
+section {
+  // margin: 75px 100px;
+
+  h3 {
+    font-size: 35px;
+    font-weight: 500;
+  }
+
+  .red {
+    color: $red;
+    font-style: italic;
+  }
+}
+
+.grid {
+  @include outer-container;
+}
+
+.grid a {
+  @include span-columns(4);
+  @include omega(3n);
+  width: 33.33%;
+  margin-right: 0;
+  position: relative;
+
+  height: 400px;
+  padding: 30px;
+
+  text-decoration: none;
+  color: white;
+  
+  &:hover {
+    background-color: red;
+  }
+
+  h4 {
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-style: italic;
+    border-bottom: 1px solid white;
+    padding-bottom: 3px;
+
+    text-rendering: geometricPrecision;
+
+    text-transform: uppercase;
+  }
+
+  p {
+    line-height: 25px;
+    font-weight: 500;
+  }
+
+  &.midyear {
+    background:     
+    linear-gradient(
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.2)
+    ), 
+    linear-gradient(
+      rgba(142, 40, 0, 0.7), 
+      rgba(142, 40, 0, 0.7)
+    ), 
+    url('../img/pearl.jpg') center center/800px no-repeat;
+  }
+
+  &.blog {
+    background:   
+    linear-gradient(
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.2)
+    ),   
+    linear-gradient(
+      rgba(34, 83, 120, 0.7), 
+      rgba(34, 83, 120, 0.7)
+    ), 
+    url('../img/downtown.jpg') left center/800px no-repeat;
+  }
+
+  &.homebase {
+    background:     
+    linear-gradient(
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.2)
+    ), 
+    linear-gradient(
+      rgba(70, 137, 102, 0.7), 
+      rgba(70, 137, 102, 0.7)
+    ), 
+    url('../img/bcycle.jpg') right top/800px no-repeat;
+  }
+
+  &:hover {
+    color: yellow;
+    border-color: yellow;
+    h4 {
+      border-color: yellow;
+    }
+  }
+
+  // background-repeat: no-repeat;
+  // background-size: 100%;
+}
+
+article {
+  position: absolute;
+  margin-right: 30px;
+  bottom: 20px;
+}

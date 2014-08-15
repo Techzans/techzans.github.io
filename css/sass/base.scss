@@ -18,7 +18,11 @@
 $serif: "jubilat",sans-serif;
 $sans: $helvetica;
 
+$black: lighten(black, 20%);
 $red: #8E2800;
+$green: rgb(70, 137, 102);
+$blue: rgb(34, 83, 120);
+
 
 /* ======== TEXT STYLES ======== */
 
@@ -26,17 +30,28 @@ body {
   font-family: $sans;
   color: lighten(black, 20%);
 
+  background-color: #eceef1;
+
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+
+  min-width: 1050px;
+}
+
+.container {
+  @include outer-container;
 }
 
 header, section, footer {
-  max-width: 1000px;
-  margin: 75px auto;
-
-  @include outer-container;
+  margin: 100px 0;
+  @include shift(1.5);
+  @include span-columns(9);
 }
+
+// section:nth-child(n+5) {
+//   margin-top: 0;
+// }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $serif;
@@ -49,12 +64,18 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 600;
+  margin-bottom: 20px;
 }
 
 header h1 .track {
   letter-spacing: -5px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 22px;
 }
 
 /* ======== HEDER ======== */
@@ -62,6 +83,8 @@ header h1 .track {
 header {
   // margin: 50px 100px;
   @include clearfix;
+  margin-bottom: 0;
+  margin-top: 50px;
 
   .logo {
     width: 100px;
@@ -79,12 +102,12 @@ header {
   p {
     float: right;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 25px;
 
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
   }
 
 }
@@ -105,106 +128,184 @@ section {
   }
 }
 
-$fg-column: 60px;
-$fg-gutter: 25px;
-$fg-max-columns: 12;
-
 .grid {
-  max-width: 100;
-  width: flex-grid(12);
-
-  margin-left: auto;
-  margin-right: auto;
-
-  @include clearfix;
-}
-
-.grid a {
-
-  width: flex-grid(4,12);
-  float: left;
-  margin-right: flex-gutter(20);
-
-  height: 300px;
-  padding: 30px;
-  position: relative;
-
-  text-decoration: none;
-  color: white;
-
-  &:hover {
-    background-color: red;
-  }
-
-  h4 {
-    margin: 0;
-    font-weight: 400;
-    letter-spacing: 2px;
-    font-size: 20px;
-    font-style: italic;
-    border-bottom: 1px solid white;
-    padding-bottom: 3px;
-
-    text-rendering: geometricPrecision;
-
-    text-transform: uppercase;
-  }
-
-  p {
-    line-height: 25px;
-    font-weight: 500;
-  }
-
-  &.midyear {
-    background:     
-    linear-gradient(
-      rgba(0, 0, 0, 0.2), 
-      rgba(0, 0, 0, 0.2)
-    ), 
-    linear-gradient(
-      rgba(142, 40, 0, 0.7), 
-      rgba(142, 40, 0, 0.7)
-    ), 
-    url('../img/pearl.jpg') center center/800px no-repeat;
-  }
-
-  &.blog {
-    background:   
-    linear-gradient(
-      rgba(0, 0, 0, 0.2), 
-      rgba(0, 0, 0, 0.2)
-    ),   
-    linear-gradient(
-      rgba(34, 83, 120, 0.7), 
-      rgba(34, 83, 120, 0.7)
-    ), 
-    url('../img/downtown.jpg') left center/800px no-repeat;
-  }
-
-  &.homebase {
-    background:     
-    linear-gradient(
-      rgba(0, 0, 0, 0.2), 
-      rgba(0, 0, 0, 0.2)
-    ), 
-    linear-gradient(
-      rgba(70, 137, 102, 0.7), 
-      rgba(70, 137, 102, 0.7)
-    ), 
-    url('../img/bcycle.jpg') right top/800px no-repeat;
-  }
-
-  &:hover {
-    color: yellow;
-    border-color: yellow;
-    h4 {
-      border-color: yellow;
-    }
-  }
-
-  // background-repeat: no-repeat;
-  // background-size: 100%;
 }
 
 article {
+
+  @include span-columns(12);
+
+  position: relative;
+  margin-bottom: 100px;
+  height: 400px;
+
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.08);
+
+  .image {
+
+    width: 70%;
+    height: 100%;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+
+    &.midyear {
+      background:     
+      linear-gradient(
+        rgba(0, 0, 0, 0.2), 
+        rgba(0, 0, 0, 0.2)
+      ), 
+      linear-gradient(
+        rgba(142, 40, 0, 0.7), 
+        rgba(142, 40, 0, 0.7)
+      ), 
+      url('../img/pearl.jpg') center center/100% no-repeat;
+    }
+
+    &.blog {
+      background:   
+      linear-gradient(
+        rgba(0, 0, 0, 0.2), 
+        rgba(0, 0, 0, 0.2)
+      ),   
+      linear-gradient(
+        rgba(34, 83, 120, 0.7), 
+        rgba(34, 83, 120, 0.7)
+      ), 
+      url('../img/downtown.jpg') left center/100% no-repeat;
+    }
+
+    &.homebase {
+
+      background:     
+      linear-gradient(
+        rgba(0, 0, 0, 0.2), 
+        rgba(0, 0, 0, 0.2)
+      ), 
+      linear-gradient(
+        rgba(70, 137, 102, 0.7), 
+        rgba(70, 137, 102, 0.7)
+      ), 
+      url('../img/bcycle.jpg') right top/100% no-repeat;
+    }
+  }
+}
+
+.card {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  padding: 30px;
+
+  h4 {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+
+    margin: 20px 0;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    color: $red;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+  }
+
+  p.btn {
+    margin-top: 40px;
+  }
+
+  a.button {
+    margin-top: 40px;
+    text-decoration: none;
+    padding: 10px;
+    color: $black;
+    font-weight: 600;
+    border: 2px solid $black;
+
+    &:hover {
+      background-color: $black;
+      color: white;
+    }
+  }
+}
+
+.homebase {
+  .kicker {
+    color: $green;
+  }
+}
+
+.blog {
+  .kicker {
+    color: $blue;
+  }
+}
+
+////// details
+
+.details {
+  background-color: #e6663e;
+  color: white;
+  margin-top: 100px;
+  padding-top: 50px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+
+    &:hover {
+      border-bottom: 3px solid white;
+    }
+  }
+
+  p {
+    margin: 25px 0;
+  }
+}
+
+.person {
+  background-color: white;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.08);
+  color: $black;
+  margin-top: 25px;
+
+  @include span-columns(3 of 9);
+
+  h5 {
+    font-size: 20px;
+    line-height: 35px;
+    font-weight: 600;
+  }
+
+  .headshot {
+    height: 15em;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  .words {
+    padding: 30px;
+  }
+}
+
+.david {
+  background: url(http://codeforamerica.org/media/images/people/david-leonard.jpg);
+}
+.maya {
+  background: url(http://codeforamerica.org/media/images/people/maya-benari.jpg);
+}
+.amy {
+  background-image: url(http://codeforamerica.org/media/images/people/amy-mok.jpg);
 }

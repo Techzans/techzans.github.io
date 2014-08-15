@@ -235,15 +235,6 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */ }
-
 /**
  * Re-set default cursor for disabled elements.
  */
@@ -360,25 +351,38 @@ th {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0; }
+
 /* ======== VARIABLES ======== */
 /* ======== TEXT STYLES ======== */
 body {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   color: #333333;
+  background-color: #eceef1;
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  min-width: 1050px; }
 
-header, section, footer {
-  max-width: 1000px;
-  margin: 75px auto;
-  max-width: 1000px;
+.container {
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto; }
-  header:after, section:after, footer:after {
+  .container:after {
     content: "";
     display: table;
     clear: both; }
+
+header, section, footer {
+  margin: 100px 0;
+  margin-left: 12.79471%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 74.41059%; }
+  header:last-child, section:last-child, footer:last-child {
+    margin-right: 0; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "jubilat", sans-serif;
@@ -389,34 +393,42 @@ h1 {
   font-weight: 600; }
 
 h2 {
-  font-size: 30px;
-  font-weight: 600; }
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px; }
 
 header h1 .track {
   letter-spacing: -5px; }
 
+p {
+  font-size: 16px;
+  line-height: 22px; }
+
 /* ======== HEDER ======== */
-header:after {
-  content: "";
-  display: table;
-  clear: both; }
-header .logo {
-  width: 100px;
-  display: inline-block;
-  float: left;
-  margin-right: 5px; }
-header h1 {
-  margin: 0;
-  float: left;
-  display: inline-block; }
-header p {
-  float: right;
-  display: inline-block;
-  margin-top: 20px;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 3px; }
+header {
+  margin-bottom: 0;
+  margin-top: 50px; }
+  header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  header .logo {
+    width: 100px;
+    display: inline-block;
+    float: left;
+    margin-right: 5px; }
+  header h1 {
+    margin: 0;
+    float: left;
+    display: inline-block; }
+  header p {
+    float: right;
+    display: inline-block;
+    margin-top: 25px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px; }
 
 /* ======== MAIN SECTION ======== */
 section h3 {
@@ -426,48 +438,109 @@ section .red {
   color: #8e2800;
   font-style: italic; }
 
-.grid {
-  max-width: 100;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto; }
-  .grid:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-.grid a {
-  width: 31.65829%;
+article {
   float: left;
-  margin-right: 1.49254%;
-  height: 300px;
-  padding: 30px;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
   position: relative;
-  text-decoration: none;
-  color: white; }
-  .grid a:hover {
-    background-color: red; }
-  .grid a h4 {
-    margin: 0;
-    font-weight: 400;
-    letter-spacing: 2px;
-    font-size: 20px;
-    font-style: italic;
+  margin-bottom: 100px;
+  height: 400px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08); }
+  article:last-child {
+    margin-right: 0; }
+  article .image {
+    width: 70%;
+    height: 100%; }
+    article .image.midyear {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(rgba(142, 40, 0, 0.7), rgba(142, 40, 0, 0.7)), url("../img/pearl.jpg") center center/100% no-repeat; }
+    article .image.blog {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(rgba(34, 83, 120, 0.7), rgba(34, 83, 120, 0.7)), url("../img/downtown.jpg") left center/100% no-repeat; }
+    article .image.homebase {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(rgba(70, 137, 102, 0.7), rgba(70, 137, 102, 0.7)), url("../img/bcycle.jpg") right top/100% no-repeat; }
+
+.card {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  padding: 30px; }
+  .card h4 {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+    margin: 20px 0; }
+  .card p {
+    margin-bottom: 20px; }
+  .card .kicker {
+    text-transform: uppercase;
+    color: #8e2800;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600; }
+  .card p.btn {
+    margin-top: 40px; }
+  .card a.button {
+    margin-top: 40px;
+    text-decoration: none;
+    padding: 10px;
+    color: #333333;
+    font-weight: 600;
+    border: 2px solid #333333; }
+    .card a.button:hover {
+      background-color: #333333;
+      color: white; }
+
+.homebase .kicker {
+  color: #468966; }
+
+.blog .kicker {
+  color: #225378; }
+
+.details {
+  background-color: #e6663e;
+  color: white;
+  margin-top: 100px;
+  padding-top: 50px; }
+  .details a {
+    color: inherit;
+    text-decoration: none;
     border-bottom: 1px solid white;
-    padding-bottom: 3px;
-    text-rendering: geometricPrecision;
-    text-transform: uppercase; }
-  .grid a p {
-    line-height: 25px;
-    font-weight: 500; }
-  .grid a.midyear {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(rgba(142, 40, 0, 0.7), rgba(142, 40, 0, 0.7)), url("../img/pearl.jpg") center center/800px no-repeat; }
-  .grid a.blog {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(rgba(34, 83, 120, 0.7), rgba(34, 83, 120, 0.7)), url("../img/downtown.jpg") left center/800px no-repeat; }
-  .grid a.homebase {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(rgba(70, 137, 102, 0.7), rgba(70, 137, 102, 0.7)), url("../img/bcycle.jpg") right top/800px no-repeat; }
-  .grid a:hover {
-    color: yellow;
-    border-color: yellow; }
-    .grid a:hover h4 {
-      border-color: yellow; }
+    padding-bottom: 2px; }
+    .details a:hover {
+      border-bottom: 3px solid white; }
+  .details p {
+    margin: 25px 0; }
+
+.person {
+  background-color: white;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
+  color: #333333;
+  margin-top: 25px;
+  float: left;
+  display: block;
+  margin-right: 3.16844%;
+  width: 31.22104%; }
+  .person:last-child {
+    margin-right: 0; }
+  .person h5 {
+    font-size: 20px;
+    line-height: 35px;
+    font-weight: 600; }
+  .person .headshot {
+    height: 15em;
+    background-repeat: no-repeat;
+    background-size: 100%; }
+  .person .words {
+    padding: 30px; }
+
+.david {
+  background: url(http://codeforamerica.org/media/images/people/david-leonard.jpg); }
+
+.maya {
+  background: url(http://codeforamerica.org/media/images/people/maya-benari.jpg); }
+
+.amy {
+  background-image: url(http://codeforamerica.org/media/images/people/amy-mok.jpg); }

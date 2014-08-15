@@ -1,0 +1,311 @@
+/* ======== BASE ======== */
+
+// Import normalize
+@import "../normalize/normalize";
+
+// Import Bourbon + Neat
+@import "../bourbon/bourbon";
+@import "../neat/neat";
+
+// Sprinkle in our grid settings
+@import "grid-settings";
+
+// Fix some margin stuff I don't like
+@import "myfixes";
+
+/* ======== VARIABLES ======== */
+
+$serif: "jubilat",sans-serif;
+$sans: $helvetica;
+
+$black: lighten(black, 20%);
+$red: #8E2800;
+$green: rgb(70, 137, 102);
+$blue: rgb(34, 83, 120);
+
+
+/* ======== TEXT STYLES ======== */
+
+body {
+  font-family: $sans;
+  color: lighten(black, 20%);
+
+  background-color: #eceef1;
+
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  min-width: 1050px;
+}
+
+.container {
+  @include outer-container;
+}
+
+header, section, footer {
+  margin: 100px 0;
+  @include shift(1.5);
+  @include span-columns(9);
+}
+
+// section:nth-child(n+5) {
+//   margin-top: 0;
+// }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+header h1 .track {
+  letter-spacing: -5px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/* ======== HEDER ======== */
+
+header {
+  // margin: 50px 100px;
+  @include clearfix;
+  margin-bottom: 0;
+  margin-top: 50px;
+
+  .logo {
+    width: 100px;
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+  }
+
+  h1 {
+    margin: 0;
+    float: left;
+    display: inline-block;
+  }
+
+  p {
+    float: right;
+    display: inline-block;
+    margin-top: 25px;
+
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
+}
+
+/* ======== MAIN SECTION ======== */
+
+section {
+  // margin: 75px 100px;
+
+  h3 {
+    font-size: 35px;
+    font-weight: 500;
+  }
+
+  .red {
+    color: $red;
+    font-style: italic;
+  }
+}
+
+.grid {
+}
+
+article {
+
+  @include span-columns(12);
+
+  position: relative;
+  margin-bottom: 100px;
+  height: 400px;
+
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.08);
+
+  .image {
+
+    width: 70%;
+    height: 100%;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+
+    &.midyear {
+      background:     
+      linear-gradient(
+        rgba(0, 0, 0, 0.2), 
+        rgba(0, 0, 0, 0.2)
+      ), 
+      linear-gradient(
+        rgba(142, 40, 0, 0.7), 
+        rgba(142, 40, 0, 0.7)
+      ), 
+      url('../img/pearl.jpg') center center/100% no-repeat;
+    }
+
+    &.blog {
+      background:   
+      linear-gradient(
+        rgba(0, 0, 0, 0.2), 
+        rgba(0, 0, 0, 0.2)
+      ),   
+      linear-gradient(
+        rgba(34, 83, 120, 0.7), 
+        rgba(34, 83, 120, 0.7)
+      ), 
+      url('../img/downtown.jpg') left center/100% no-repeat;
+    }
+
+    &.homebase {
+
+      background:     
+      linear-gradient(
+        rgba(0, 0, 0, 0.2), 
+        rgba(0, 0, 0, 0.2)
+      ), 
+      linear-gradient(
+        rgba(70, 137, 102, 0.7), 
+        rgba(70, 137, 102, 0.7)
+      ), 
+      url('../img/bcycle.jpg') right top/100% no-repeat;
+    }
+  }
+}
+
+.card {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  padding: 30px;
+
+  h4 {
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+
+    margin: 20px 0;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    color: $red;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+  }
+
+  p.btn {
+    margin-top: 40px;
+  }
+
+  a.button {
+    margin-top: 40px;
+    text-decoration: none;
+    padding: 10px;
+    color: $black;
+    font-weight: 600;
+    border: 2px solid $black;
+
+    &:hover {
+      background-color: $black;
+      color: white;
+    }
+  }
+}
+
+.homebase {
+  .kicker {
+    color: $green;
+  }
+}
+
+.blog {
+  .kicker {
+    color: $blue;
+  }
+}
+
+////// details
+
+.details {
+  background-color: #e6663e;
+  color: white;
+  margin-top: 100px;
+  padding-top: 50px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+
+    &:hover {
+      border-bottom: 3px solid white;
+    }
+  }
+
+  p {
+    margin: 25px 0;
+  }
+}
+
+.person {
+  background-color: white;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.08);
+  color: $black;
+  margin-top: 25px;
+
+  @include span-columns(3 of 9);
+
+  h5 {
+    font-size: 20px;
+    line-height: 35px;
+    font-weight: 600;
+  }
+
+  .headshot {
+    height: 15em;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  .words {
+    padding: 30px;
+  }
+}
+
+.david {
+  background: url(http://codeforamerica.org/media/images/people/david-leonard.jpg);
+}
+.maya {
+  background: url(http://codeforamerica.org/media/images/people/maya-benari.jpg);
+}
+.amy {
+  background-image: url(http://codeforamerica.org/media/images/people/amy-mok.jpg);
+}
